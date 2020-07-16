@@ -19,7 +19,8 @@ require('dotenv').config();
  */
 const app = express();
 app.set('views', './views');
-app.use(express.static('./public'));
+// app.use(express.static('./public'));
+app.use(express.static(__dirname + '/public'));
 app.engine('html', require('ejs').renderFile);
 app.listen(process.env.PORT || 3000);
 

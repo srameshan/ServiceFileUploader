@@ -1,17 +1,47 @@
 <html>
-  <head>
-        <title>UI to upload a file to s3 bucket</title>
-        
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+        <title>SAP Quintessentials</title>
+        <link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <link href="/css/style.css" rel="stylesheet" type="text/html"> 
     </head>
   <body>
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="panel panel-default">
+            <div class="panel-body">
+              <span class="glyphicon glyphicon-cloud-upload"></span>
+              <h2>Welcome to SAP Quintessentials</h2>
+              <h4>Upload a Service Report</h4>
+              <div class="progress">
+                <div class="progress-bar" role="progressbar"></div>
+              </div>
+                <!-- <button class="btn btn-lg upload-btn" type="button">Upload File</button> -->
+                <form>
+                  <input type="file" class="btn btn-lg upload-btn" id="file-input" accept=".pdf, .docx, .pptx">
+                  <label for="name">Employee ID</label>
+                  <input type="text" id = "name" name="Employee-ID" maxlength="8">
+                  <input type="button" class="btn btn-lg upload-btn" id = "sub" value="Upload" onclick = "initUpload()">
+                </form>
+              
 
-    <h1>Welcome to Service Quality Analysis</h1>
-	  <h3>Select a pdf to be uploaded to s3 bucket</h3>
-    
-    <form>
-      <input type="file" id="file-input" accept=".pdf, .docx, .pptx">
-      <input type="button" id = "sub" value="Upload" onclick = "initUpload()">
-    </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- <h1>Welcome to Service Quality Analysis</h1> -->
+	  <!-- <h3>Select a pdf to be uploaded to s3 bucket</h3> -->
+    <!-- <form> -->
+      <!-- <input type="file" id="file-input" accept=".pdf, .docx, .pptx"> -->
+      <!-- <input type="button" id = "sub" value="Upload" onclick = "initUpload()"> -->
+    <!-- </form> -->
+
 
     <script type="text/javascript">
       /*
@@ -24,6 +54,7 @@
         if(xhr.readyState === 4){
           if(xhr.status === 200){
             console.log(xhr.responseText);
+            alert('Upload Successful!');
           }
           else{
             alert('Could not upload file.');
@@ -67,6 +98,7 @@
         return alert('No file selected.');
       }
       getSignedRequest(file);
+      
     }
 
     /*
